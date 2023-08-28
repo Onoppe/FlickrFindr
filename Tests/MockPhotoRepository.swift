@@ -12,5 +12,6 @@ class MockPhotoRepository: PhotoRepositoryProtocol {
     func getRecentPhotos() async throws -> [Photo] {
         MockPhotoRepository.getRecentPhotosCalled?()
         return [.preview]
+        
     }
 }
