@@ -2,9 +2,9 @@ name: Sonar
 env:
   DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
 'on':
-  pull_request_target:
+  pull_request:
     branches:
-      - "**"
+      - main
     types: [opened, synchronize, reopened, labeled]
   schedule:
     - cron: 0 16 * * *
