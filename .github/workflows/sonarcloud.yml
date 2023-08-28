@@ -29,6 +29,7 @@ jobs:
           set -o pipefail && xcodebuild -project
           FlickrFindr.xcodeproj -scheme FlickrFindr
           -sdk 'iphonesimulator16.2'
+          -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2'
           -derivedDataPath Build/ -enableCodeCoverage YES clean build test
           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" ONLY_ACTIVE_ARCH=NO |
           xcpretty
