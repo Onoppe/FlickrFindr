@@ -48,7 +48,7 @@ jobs:
           -Dsonar.sources=.
           -Dsonar.exclusions=Tests/
           -Dsonar.tests=Tests/
-          -Dsonar.coverage.exclusions=**/*Test*/**
+          -Dsonar.coverage.exclusions=Tests/
           -Dsonar.swift.project=FlickrFindr.xcodeproj
           -Dsonar.swift.scheme=FlickrFindr
           -Dsonar.cfamily.build-wrapper-output.bypass=true
