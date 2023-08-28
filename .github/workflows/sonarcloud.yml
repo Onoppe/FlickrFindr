@@ -20,8 +20,8 @@ jobs:
       - name: Install Dependencies
         run: >
           wget
-          https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-macosx.zip
-          && unzip sonar-scanner-cli-4.5.0.2216-macosx.zip && wget
+          https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-macosx.zip
+          && unzip sonar-scanner-cli-5.0.1.3006-macosx.zip && wget
           https://sonarcloud.io/static/cpp/build-wrapper-macosx-x86.zip && unzip
           build-wrapper-macosx-x86.zip
       - name: Run tests
@@ -41,7 +41,7 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
         run: >
-            sonar-scanner-4.5.0.2216-macosx/bin/sonar-scanner
+            sonar-scanner-5.0.1.3006-macosx/bin/sonar-scanner
           -Dsonar.projectName=FlickrFindr
           -Dsonar.organization=onoppe
           -Dsonar.projectKey=Onoppe_FlickrFindr
