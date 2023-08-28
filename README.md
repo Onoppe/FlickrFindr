@@ -2,8 +2,6 @@
 [![codecov](https://codecov.io/gh/adamhaafiz/FlickrFindr/branch/main/graph/badge.svg?token=PrkF5qHDy4)](https://codecov.io/gh/adamhaafiz/FlickrFindr)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Onoppe_FlickrFindr&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Onoppe_FlickrFindr)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Onoppe_FlickrFindr&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Onoppe_FlickrFindr)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Onoppe_FlickrFindr&metric=alert_status)]
-(https://sonarcloud.io/summary/new_code?id=Onoppe_FlickrFindr)
 
 ![https://codecov.io/gh/adamhaafiz/FlickrFindr/branch/main/graphs/sunburst.svg?token=PrkF5qHDy4](https://codecov.io/gh/adamhaafiz/FlickrFindr/branch/main/graphs/tree.svg?token=PrkF5qHDy4)
 
