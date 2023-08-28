@@ -45,9 +45,8 @@ jobs:
           -Dsonar.projectName=FlickrFindr
           -Dsonar.organization=onoppe
           -Dsonar.projectKey=Onoppe_FlickrFindr
-          -Dsonar.sources=Core/*,FlickrFindr/*
+          -Dsonar.sources=Core,FlickrFindr
           -Dsonar.exclusions=Tests/*,**/Tests/*,
-          -Dsonar.tests=Tests/*,**/Tests/*
           -Dsonar.coverage.exclusions=Tests/*,Core/Tests/*
           -Dsonar.swift.project=FlickrFindr.xcodeproj
           -Dsonar.swift.scheme=FlickrFindr
