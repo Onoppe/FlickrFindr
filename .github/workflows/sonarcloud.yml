@@ -41,7 +41,7 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
         run: >
-            sonar-scanner-4.5.0.2216-macosx/bin/sonar-scanner
+           sonar-scanner-4.5.0.2216-macosx/bin/sonar-scanner
           -Dsonar.projectName=FlickrFindr
           -Dsonar.organization=onoppe
           -Dsonar.projectKey=Onoppe_FlickrFindr
