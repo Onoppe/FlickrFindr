@@ -45,8 +45,10 @@ jobs:
           -Dsonar.projectName=FlickrFindr
           -Dsonar.organization=onoppe
           -Dsonar.projectKey=Onoppe_FlickrFindr
-          -Dsonar.sources=.
-          -Dsonar.coverage.exclusions=Tests/
+          -Dsonar.sources=Core/*,FlickrFindr/*
+          -Dsonar.exclusions=Tests/*,**/Tests/*,
+          -Dsonar.tests=Tests/*,**/Tests/*
+          -Dsonar.coverage.exclusions=Tests/*,Core/Tests/*
           -Dsonar.swift.project=FlickrFindr.xcodeproj
           -Dsonar.swift.scheme=FlickrFindr
           -Dsonar.cfamily.build-wrapper-output.bypass=true
@@ -56,3 +58,4 @@ jobs:
           -Dsonar.c.file.suffixes=- 
           -Dsonar.cpp.file.suffixes=-
           -Dsonar.objc.file.suffixes=-
+
