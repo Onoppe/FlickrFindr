@@ -27,7 +27,7 @@ jobs:
       - name: Run tests
         run: >
           set -o pipefail && xcodebuild -project
-          FlickrFindr.xcodeproj -scheme EssentialFeed
+          FlickrFindr.xcodeproj -scheme FlickrFindr
           -destination 'platform=macosx'
           -derivedDataPath Build/ -enableCodeCoverage YES clean build test
           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" ONLY_ACTIVE_ARCH=NO |
