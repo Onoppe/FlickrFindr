@@ -1,0 +1,56 @@
+name: Sonar
+env:
+  DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+'on':
+  pull_request_target:
+    branches:
+      - "**"
+    types: [opened, synchronize, reopened, labeled]
+  schedule:
+    - cron: 0 16 * * *
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v2
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '14.2.0'
+      - name: Install Dependencies
+        run: >
+          wget
+          https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-macosx.zip
+          && unzip sonar-scanner-cli-4.5.0.2216-macosx.zip && wget
+          https://sonarcloud.io/static/cpp/build-wrapper-macosx-x86.zip && unzip
+          build-wrapper-macosx-x86.zip
+      - name: Run tests
+        run: >
+          set -o pipefail && xcodebuild -project
+          FlickrFindr.xcodeproj -scheme EssentialFeed
+          -destination 'platform=macosx'
+          -derivedDataPath Build/ -enableCodeCoverage YES clean build test
+          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" ONLY_ACTIVE_ARCH=NO |
+          xcpretty
+
+          bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ >
+          coverage.xml
+      - name: Sonar
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
+        run: >
+          sonar-scanner-4.5.0.2216-macosx/bin/sonar-scanner
+          -Dsonar.projectName=FlickrFindr
+          -Dsonar.organization=onoppe
+          -Dsonar.projectKey=Onoppe_FlickrFindr
+          -Dsonar.sources=.
+          -Dsonar.swift.project=FlickrFindr.xcodeproj
+          -Dsonar.swift.scheme=FlickrFindr
+          -Dsonar.cfamily.build-wrapper-output.bypass=true
+          -Dsonar.host.url=https://sonarcloud.io 
+          -Dsonar.login=$SONAR_TOKEN
+          -Dsonar.coverageReportPaths=coverage.xml
+          -Dsonar.c.file.suffixes=- 
+          -Dsonar.cpp.file.suffixes=-
+          -Dsonar.objc.file.suffixes=-
