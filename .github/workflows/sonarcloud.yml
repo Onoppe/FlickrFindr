@@ -28,7 +28,7 @@ jobs:
         run: >
           set -o pipefail && xcodebuild -project
           FlickrFindr.xcodeproj -scheme FlickrFindr
-          -destination 'platform=macosx'
+          -destination 'platform=ios'
           -derivedDataPath Build/ -enableCodeCoverage YES clean build test
           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" ONLY_ACTIVE_ARCH=NO |
           xcpretty
