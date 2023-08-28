@@ -46,9 +46,10 @@ jobs:
           -Dsonar.organization=onoppe
           -Dsonar.projectKey=Onoppe_FlickrFindr
           -Dsonar.sources=Core,FlickrFindr
-          -Dsonar.exclusions=Tests/*,**/*Test*/**
+          -Dsonar.swift.excludedPathsFromCoverage=Tests/*,Core/Tests/*
           -Dsonar.swift.project=FlickrFindr.xcodeproj
           -Dsonar.swift.scheme=FlickrFindr
+          -Dsonar.cfamily.build-wrapper-output.bypass=true
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.login=$SONAR_TOKEN
           -Dsonar.coverageReportPaths=coverage.xml
