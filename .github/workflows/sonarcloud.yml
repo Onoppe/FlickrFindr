@@ -27,8 +27,9 @@ jobs:
       - name: Run tests
         run: >
           set -o pipefail && xcodebuild -project
-          FlickrFindr.xcodeproj -scheme EssentialFeed
-          -destination 'platform=macosx'
+          FlickrFindr.xcodeproj -scheme FlickrFindr
+          -sdk 'iphonesimulator16.2'
+          -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2'
           -derivedDataPath Build/ -enableCodeCoverage YES clean build test
           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" ONLY_ACTIVE_ARCH=NO |
           xcpretty
@@ -44,13 +45,16 @@ jobs:
           -Dsonar.projectName=FlickrFindr
           -Dsonar.organization=onoppe
           -Dsonar.projectKey=Onoppe_FlickrFindr
-          -Dsonar.sources=.
+          -Dsonar.sources=Core/*,FlickrFindr/*
+          -Dsonar.exclusions=Tests/*,**/Tests/*,
+          -Dsonar.tests=Tests/*,**/Tests/*
+          -Dsonar.coverage.exclusions=Tests/*,Core/Tests/*
           -Dsonar.swift.project=FlickrFindr.xcodeproj
           -Dsonar.swift.scheme=FlickrFindr
           -Dsonar.cfamily.build-wrapper-output.bypass=true
-          -Dsonar.host.url=https://sonarcloud.io 
+          -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.login=$SONAR_TOKEN
           -Dsonar.coverageReportPaths=coverage.xml
-          -Dsonar.c.file.suffixes=- 
+          -Dsonar.c.file.suffixes=-
           -Dsonar.cpp.file.suffixes=-
           -Dsonar.objc.file.suffixes=-
