@@ -45,7 +45,6 @@ jobs:
           -Dsonar.projectName=FlickrFindr
           -Dsonar.organization=onoppe
           -Dsonar.projectKey=Onoppe_FlickrFindr
-          -Dsonar.sources=.
           -Dsonar.exclusions=Tests/
           -Dsonar.tests=Tests/
           -Dsonar.coverage.exclusions=Tests/
